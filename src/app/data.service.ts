@@ -9,7 +9,7 @@ import { Response } from "./models/response.model";
   providedIn: 'root'
 })
 export class DataService {
-
+  
   constructor(private http: HttpClient) { }
 
   public getUsers():Observable<User[]> {
