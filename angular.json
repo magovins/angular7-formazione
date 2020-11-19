@@ -29,8 +29,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -136,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "ng7"
+  "defaultProject": "ng7",
+  "cli": {
+    "analytics": "30e89737-c9eb-4cc8-be1a-c373a67b23a2"
+  }
 }
