@@ -18,7 +18,7 @@ export class UserDetailComponent implements OnInit {
     private service: DetailService ) {}
 
   ngOnInit() {    
-    // l'id viene passato in ...this.router.snapshot.params.userId
+    // l'id viene passato in this.router.snapshot.params.userId
     // e non in this.router.data
     this.userId = this.router.snapshot.params.userId;
     
