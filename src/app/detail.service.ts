@@ -13,7 +13,7 @@ export class DetailService {
   constructor(private http: HttpClient) { }
 
   public getUser(userId):Observable<User> {
-    return this.http.get<Object>('https://reqres.in/api/users/'+ userId ).pipe(
+    return this.http.get<Object>('https://reqres.in/api/users/'+ userId).pipe(
       map( response => {
         //console.log(data);
         return new User().deserialize(response["data"])
