@@ -1,14 +1,16 @@
 <h1>Create new user</h1>
 
-<form [formGroup]="formData" (ngSubmit)="onSubmit()">
+<div>
   Name
-  <input type="text" formControlName="name"><br><br>
+  <input type="text" [(ngModel)]="user.first_name"><br><br>
   Job
-  <input type="text" formControlName="job"><br><br>
+  <input type="text" [(ngModel)]="user.job"><br><br>
   
-  <input type="submit" value="Save" class="cta">
+  <input type="button" value="Save" class="cta" (click)='onSubmit()'>
 
-</form>
+</div>
+
+
 
 
 <div *ngIf="success" class="results">

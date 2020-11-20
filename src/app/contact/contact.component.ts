@@ -14,8 +14,9 @@ export class ContactComponent implements OnInit {
   formGroup: FormGroup;
   submitted = false;
   success = false;
-  user: User;
+  user: User = new User;
   formData: FormGroup;
+  
 
   constructor(private formBuilder: FormBuilder, private createService: CreateService) { }
 
@@ -27,8 +28,8 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formData.value);
-    this.createService.addUser(this.formData.value).subscribe(res => {
+    console.log(this.user);
+    this.createService.addUser(this.user).subscribe(res => {
       console.log(res);
       this.success = true;
       this.formData.reset();

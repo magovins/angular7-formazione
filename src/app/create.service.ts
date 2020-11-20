@@ -2,20 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { User } from './models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreateService {
-  risultato:any = "OK";
+  risultato: string  = "OK";
   constructor(private http: HttpClient) { }
 
-  public addUser(value: any): Observable<any>{
+  public addUser(value: User): Observable<string>{
     console.log(value);
     return this.http.post<Object>('https://reqres.in/api/users',value).pipe(
       map(response => {
         //console.log(data);
-        return response;
+        return this.risultato;
       })
     );
     
