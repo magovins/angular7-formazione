@@ -31,6 +31,7 @@ export class ContactComponent implements OnInit {
     this.createService.addUser(this.formData.value).subscribe(res => {
       console.log(res);
       this.success = true;
+      this.formData.reset();
     });
   
     /*this.submitted = true;
