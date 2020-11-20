@@ -6,7 +6,9 @@ export class User implements Deserializable {
     public first_name: string;
     public id: number;
     public last_name: string;
-   
+    public job: string;
+
+
     deserialize(input: any): this {
         return Object.assign(this, input);
     }
@@ -15,6 +17,7 @@ export class User implements Deserializable {
         return this.first_name + ' ' + this.last_name;
     }
     
+
 }
 
 /*

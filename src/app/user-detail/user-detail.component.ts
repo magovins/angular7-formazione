@@ -23,7 +23,7 @@ export class UserDetailComponent implements OnInit {
     this.userId = this.router.snapshot.params.userId;
     
     this.service.getUser(this.userId).subscribe(user=>{
-      this.user= user;
+      this.user = user;
       console.log(this.user);
     });
   }
