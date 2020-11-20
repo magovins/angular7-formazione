@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DetailService } from '../detail.service';
 import { User } from '../models/user.model';
 
@@ -10,22 +10,21 @@ import { User } from '../models/user.model';
 })
 export class UserDetailComponent implements OnInit {
 
-  public user: User
-  constructor(private route: ActivatedRoute, 
-    private service: DetailService) {
+  public user: User;
+  private userId: number;
+
+  constructor(
+    private router: ActivatedRoute,
+    private service: DetailService ) {}
+
+  ngOnInit() {    
+    // l'id viene passato in this.router.snapshot.params.userId
+    // e non in this.router.data
+    this.userId = this.router.snapshot.params.userId;
     
-   }
-
-  ngOnInit() {
-    this.route.data.subscribe(data => {
-     console.log(data)
-     this.service.getUser( data.userId).subscribe(user=>{
-       this.user= user
-     } )
+    this.service.getUser(this.userId).subscribe(user=>{
+      this.user= user;
+      console.log(this.user);
+    });
   }
-  )}
-
-
-  
-
 }

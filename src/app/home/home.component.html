@@ -10,9 +10,10 @@
 
 <ul *ngIf="userList">
   <li *ngFor="let user of userList;">
-    <img [src]="user.avatar">
-    <p>{{ user.first_name }} {{ user.last_name }}</p>
-    <a [routerLink]="['/user', user.id]">Show Detail</a>
+    <a [routerLink]="['/user', user.id]">
+      <img [src]="user.avatar">
+      <p>{{ user.first_name }} {{ user.last_name }}</p>
+    </a>
   </li>
 </ul>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { DetailService } from '../detail.service';
 import { User } from '../models/user.model';
 
 @Component({
@@ -8,23 +9,21 @@ import { User } from '../models/user.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   
   h1Style: boolean = false;
   
   public user: User;
   public userList: Array<User> = [];
 
-  constructor(private service: DataService) { }
+  constructor(private service: DataService){}
 
   ngOnInit() {
     this.service.getUsers().subscribe(data => {
         this.userList = data;
         console.log("USER LIST:");
         console.log(this.userList);
-        //this.userList.push(new User()); // ? ? ? ? questo nuovo oggetto lo vedo nel log della riga sopra
-    }
-    );
+    });
+    
   }
 
   firstClick() {
@@ -48,8 +47,6 @@ export class HomeComponent implements OnInit {
         }
         console.log("USER LIST UPDATED:");
         console.log(this.userList);
-        
-        
       }
     );
   }
