@@ -12,10 +12,9 @@ export class CreateService {
   constructor(private http: HttpClient) { }
 
   public addUser(value: User): Observable<string>{
-    console.log(value);
     return this.http.post<Object>('https://reqres.in/api/users',value).pipe(
       map(response => {
-        //console.log(data);
+        console.log(response);
         return this.risultato;
       })
     );

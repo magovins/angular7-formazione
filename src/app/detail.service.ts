@@ -8,7 +8,7 @@ import { User } from './models/user.model';
   providedIn: 'root'
 })
 export class DetailService {
-  
+    
   constructor(private http: HttpClient) { }
 
   public getUser(userId):Observable<User> {

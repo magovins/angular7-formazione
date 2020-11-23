@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { DetailService } from '../detail.service';
 import { User } from '../models/user.model';
@@ -14,8 +16,15 @@ export class HomeComponent implements OnInit {
   
   public user: User;
   public userList: Array<User> = [];
+  public stream: Subject<number> = new Subject<number>();
 
-  constructor(private service: DataService){}
+  constructor(private service: DataService){
+    setInterval(()=>{
+      let randomN = Math.random() * (100 - 0) + 0;
+
+      this.stream.next(randomN);
+    },1000);
+  }
 
   ngOnInit() {
     this.service.getUsers().subscribe(data => {
@@ -23,7 +32,20 @@ export class HomeComponent implements OnInit {
         console.log("USER LIST:");
         console.log(this.userList);
     });
-    
+
+    this.stream.pipe(
+      // scorrere ogni n e trasformarlo in intero
+      map(el => Math.floor(el)),
+      filter((el,index) => {
+        if((el%2) == 0){
+          return true;
+        } else {
+          return false;
+        }
+      })
+    ).subscribe(n => {
+      console.log(n);
+    })
   }
 
   firstClick() {

@@ -1,3 +1,7 @@
+<div *ngIf="canEdit" class="card">
+    <h1>UPDATE USER</h1>
+</div>
+
 <div *ngIf="user" class="card">
     <img [src]="user.avatar" style="width:100%">
     <h1>{{ user.first_name }} {{user.last_name}}</h1>

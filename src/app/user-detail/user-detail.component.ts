@@ -12,7 +12,8 @@ export class UserDetailComponent implements OnInit {
 
   public user: User;
   private userId: number;
-
+  private canEdit: boolean = true;
+  
   constructor(
     private router: ActivatedRoute,
     private service: DetailService ) {}
