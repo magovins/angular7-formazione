@@ -3,7 +3,6 @@ export class Oggetto {
     public nome: string;
     public età: number;
 
-
 }
 
 export class Auto {
